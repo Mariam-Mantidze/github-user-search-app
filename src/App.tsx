@@ -1,35 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from "react";
+import "./App.css";
+import styled from "styled-components";
+import GitHubUser from "./types/User";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [userData, setUserData] = useState<GitHubUser | null>(null);
+  const [userName, setUserName] = useState<string>("mariam-mantidze");
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  const getUser = async () => {
+    try {
+      const response = await fetch(`https://api.github.com/users/${userName}`);
+      const data = await response.json();
+      setUserData(data);
+    } catch (error) {
+      setUserData(error);
+    }
+  };
+  // console.log(userData);
 
   return (
     <>
+      <input
+        value={userName}
+        onChange={(event) => setUserName(event.target.value)}
+        type="text"
+      />{" "}
+      <button onClick={getUser}>search</button>
+      {userData?.message && <p style={{ color: "red" }}>not found</p>}
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <img
+          src={userData?.avatar_url}
+          alt="image of user"
+          style={{ width: "100px", borderRadius: "50%" }}
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>{userData?.name}</h1>
+      <p>{userData?.bio}</p>
+      <p>{userData?.location}</p>
+      <p>{userData?.email}</p>
+      <p>{userData?.twitter_username}</p>
+      <p>{userData?.public_repos}</p>
+      <p>{userData?.followers}</p>
+      <p>{userData?.following}</p>
+      <div></div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
