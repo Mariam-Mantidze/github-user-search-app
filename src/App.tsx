@@ -2,35 +2,43 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import styled from "styled-components";
 import GitHubUser from "./types/User";
+import Header from "./Header";
+import { GlobalStyle } from "./styles/GlobalStyles";
 
 function App() {
   const [userData, setUserData] = useState<GitHubUser | null>(null);
-  const [userName, setUserName] = useState<string>("mariam-mantidze");
+  const [status, setStatus] = useState<number>(200);
+  const [userName, setUserName] = useState<string>("octocat");
 
   useEffect(() => {
     getUser();
   }, []);
+
+  console.log(status);
 
   const getUser = async () => {
     try {
       const response = await fetch(`https://api.github.com/users/${userName}`);
       const data = await response.json();
       setUserData(data);
+      setStatus(response.status);
     } catch (error) {
-      setUserData(error);
+      console.error(error);
     }
   };
   // console.log(userData);
 
   return (
     <>
+      <GlobalStyle />
+      <Header />
       <input
         value={userName}
         onChange={(event) => setUserName(event.target.value)}
         type="text"
       />{" "}
       <button onClick={getUser}>search</button>
-      {userData?.message && <p style={{ color: "red" }}>not found</p>}
+      {status !== 200 && <p style={{ color: "red" }}>not found</p>}
       <div>
         <img
           src={userData?.avatar_url}
