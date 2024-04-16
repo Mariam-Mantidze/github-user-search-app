@@ -48,7 +48,7 @@ export default function MainCard({ userData }) {
         <div className="text-flex-group">
           <div className="user-names">
             <h3>{userData?.name}</h3>
-            <span>@{userData.login}</span>
+            <span>@{userData?.login}</span>
           </div>
           <p className="date">{formatJoinedDate(userData?.created_at)}</p>
         </div>
@@ -165,7 +165,7 @@ const ResultCard = styled.div`
     border-radius: 12px;
     display: flex;
     gap: 25px;
-    justify-content: center;
+    justify-content: space-around;
     padding: 18px 14px 19px 15px;
     margin-top: 23px;
 
@@ -209,6 +209,11 @@ const ResultCard = styled.div`
       line-height: 19.25px;
       text-align: left;
       color: rgba(75, 106, 155, 1);
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 `;

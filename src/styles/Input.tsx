@@ -48,6 +48,11 @@ const InputBox = styled.div`
       border: none;
       min-width: 170px;
 
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 25px;
+      color: rgba(34, 39, 49, 1);
+
       &::placeholder {
         font-size: 13px;
         font-weight: 400;
