@@ -1,4 +1,8 @@
 import styled from "styled-components";
+import Location from "/images/icon-location.svg";
+import Website from "/images/icon-website.svg";
+import Twitter from "/images/icon-twitter.svg";
+import Company from "/images/icon-company.svg";
 
 export default function MainCard({ userData }) {
   function formatJoinedDate(isoDateString) {
@@ -64,6 +68,31 @@ export default function MainCard({ userData }) {
         <div className="flex-grp">
           <p className="title">Following</p>
           <span>{userData?.following}</span>
+        </div>
+      </div>
+
+      <div className="links-section">
+        <div className="link-pair">
+          <img src={Location} alt="pin icon" />
+          <span>
+            {userData?.location ? userData?.location : "Not available"}
+          </span>
+        </div>
+        <div className="link-pair">
+          <img src={Website} alt="link/website icon" />
+          <span>{userData?.blog ? userData?.blog : "Not available"}</span>
+        </div>
+        <div className="link-pair">
+          <img src={Twitter} alt="pin icon" />
+          <span>
+            {userData?.twitter_username
+              ? userData?.twitter_username
+              : "Not Available"}
+          </span>
+        </div>
+        <div className="link-pair">
+          <img src={Company} alt="pin icon" />
+          <span>{userData?.company ? userData?.company : "Not available"}</span>
         </div>
       </div>
     </ResultCard>
@@ -143,6 +172,7 @@ const ResultCard = styled.div`
     & .flex-grp {
       display: flex;
       flex-direction: column;
+      gap: 8px;
 
       & .title {
         font-size: 11px;
@@ -158,6 +188,27 @@ const ResultCard = styled.div`
         text-align: center;
         color: rgba(43, 52, 66, 1);
       }
+    }
+  }
+
+  .links-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  & .link-pair {
+    display: flex;
+    align-items: center;
+    gap: 19.25px;
+
+    & span {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 19.25px;
+      text-align: left;
+      color: rgba(75, 106, 155, 1);
     }
   }
 `;
