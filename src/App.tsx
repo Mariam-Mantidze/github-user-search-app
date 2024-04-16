@@ -4,6 +4,7 @@ import styled from "styled-components";
 import GitHubUser from "./types/User";
 import Header from "./Header";
 import { GlobalStyle } from "./styles/GlobalStyles";
+import InputContainer from "./styles/Input";
 
 function App() {
   const [userData, setUserData] = useState<GitHubUser | null>(null);
@@ -32,13 +33,19 @@ function App() {
     <>
       <GlobalStyle />
       <Header />
-      <input
+      <InputContainer
+        userName={userName}
+        getUser={getUser}
+        status={status}
+        setUserName={setUserName}
+      />
+      {/* <input
         value={userName}
         onChange={(event) => setUserName(event.target.value)}
         type="text"
       />{" "}
       <button onClick={getUser}>search</button>
-      {status !== 200 && <p style={{ color: "red" }}>not found</p>}
+      {status !== 200 && <p style={{ color: "red" }}>not found</p>} */}
       <div>
         <img
           src={userData?.avatar_url}

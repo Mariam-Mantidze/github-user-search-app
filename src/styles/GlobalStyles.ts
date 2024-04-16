@@ -16,6 +16,8 @@ body {
     padding: 31px 24px 79px;
     display:flex;
     flex-direction: column;
+    background-color:rgba(246, 248, 255, 1);
+
 
  
 }
