@@ -40,4 +40,8 @@ const ThemeContainer = styled.div`
     text-align: right;
     color: rgba(75, 106, 155, 1);
   }
+
+  & > img {
+    cursor: pointer;
+  }
 `;
