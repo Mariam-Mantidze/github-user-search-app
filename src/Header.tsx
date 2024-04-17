@@ -2,11 +2,12 @@ import styled from "styled-components";
 import Sun from "/images/icon-sun.svg";
 import Moon from "/images/icon-moon.svg";
 
-export default function Header() {
+export default function Header({ setMode, mode }) {
   return (
     <HeaderContainer>
       <h1>devfinder</h1>
-      <ThemeContainer>
+      <ThemeContainer
+        onClick={() => setMode(mode === "light" ? "dark" : "light")}>
         <img src={Moon} alt={"sun or moon"} />
         <span>{"DARK"}</span>
       </ThemeContainer>

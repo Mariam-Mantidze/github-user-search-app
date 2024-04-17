@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import GitHubUser from "./types/User";
 import Header from "./Header";
 import { GlobalStyle } from "./styles/GlobalStyles";
 import InputContainer from "./styles/Input";
 import MainCard from "./MainCard";
 
+import { lightTheme, darkTheme } from "./themes/Themes";
+
 function App() {
   const [userData, setUserData] = useState<GitHubUser | null>(null);
   const [status, setStatus] = useState<number>(200);
   const [userName, setUserName] = useState<string>("octocat");
+  const [mode, setMode] = useState("light");
 
   useEffect(() => {
     getUser();
@@ -30,9 +33,9 @@ function App() {
   };
 
   return (
-    <>
+    <ThemeProvider theme={mode === "light" ? lightTheme : darkTheme}>
       <GlobalStyle />
-      <Header />
+      <Header setMode={setMode} mode={mode} />
       <InputContainer
         getUser={getUser}
         status={status}
@@ -40,7 +43,7 @@ function App() {
       />
 
       <MainCard userData={userData} />
-    </>
+    </ThemeProvider>
   );
 }
 

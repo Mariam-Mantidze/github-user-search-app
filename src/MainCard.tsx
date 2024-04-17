@@ -50,7 +50,11 @@ export default function MainCard({ userData }) {
             <h3>{userData?.name}</h3>
             <span>@{userData?.login}</span>
           </div>
-          <p className="date">{formatJoinedDate(userData?.created_at)}</p>
+          <p className="date">
+            {formatJoinedDate(userData?.created_at)
+              ? formatJoinedDate(userData?.created_at)
+              : ""}
+          </p>
         </div>
       </div>
 

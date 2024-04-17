@@ -32,7 +32,7 @@ const InputBox = styled.div`
   justify-content: space-between;
   gap: 8px;
   padding: 6.5px 7px 7.5px 16px;
-  background: rgba(254, 254, 254, 1);
+  background: ${(props) => props.theme.cardsBackground};
   box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.2);
   border-radius: 12px;
   margin-top: 36px;
@@ -51,7 +51,8 @@ const InputBox = styled.div`
       font-size: 13px;
       font-weight: 400;
       line-height: 25px;
-      color: rgba(34, 39, 49, 1);
+      color: ${(props) => props.theme.inputColor};
+      background-color: ${(props) => props.theme.cardsBackground};
 
       &::placeholder {
         font-size: 13px;
@@ -84,7 +85,7 @@ const InputBox = styled.div`
 
     & > .error-message {
       color: rgba(247, 70, 70, 1);
-
+      margin-right: 20px;
       font-size: 13px;
       font-weight: 700;
       line-height: 22.22px;
