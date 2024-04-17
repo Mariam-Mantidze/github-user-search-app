@@ -33,7 +33,7 @@ const InputBox = styled.div`
   gap: 8px;
   padding: 6.5px 7px 7.5px 16px;
   background: ${(props) => props.theme.cardsBackground};
-  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.2);
+  box-shadow: ${(props) => props.theme.shadow};
   border-radius: 12px;
   margin-top: 36px;
   cursor: pointer;

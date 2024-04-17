@@ -8,8 +8,11 @@ export default function Header({ setMode, mode }) {
       <h1>devfinder</h1>
       <ThemeContainer
         onClick={() => setMode(mode === "light" ? "dark" : "light")}>
-        <img src={Moon} alt={"sun or moon"} />
-        <span>{"DARK"}</span>
+        <span>{mode === "light" ? "DARK" : "LIGHT"}</span>
+        <img
+          src={mode === "light" ? Moon : Sun}
+          alt={mode === "light" ? "icon of moon" : "icon of sun"}
+        />
       </ThemeContainer>
     </HeaderContainer>
   );
@@ -26,7 +29,7 @@ const HeaderContainer = styled.header`
 
     line-height: 38.51px;
     text-align: left;
-    color: rgba(34, 39, 49, 1);
+    color: ${(props) => props.theme.logoColor};
   }
 `;
 const ThemeContainer = styled.div`
@@ -39,7 +42,7 @@ const ThemeContainer = styled.div`
     line-height: 19.25px;
     letter-spacing: 2.5px;
     text-align: right;
-    color: rgba(75, 106, 155, 1);
+    color: ${(props) => props.theme.inputColor};
   }
 
   & > img {
