@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import SearchIcon from "/images/icon-search.svg";
-import { InputContainerProps } from "../types/User";
+import { InputContainerProps } from "./types/User";
 
 const InputContainer: React.FC<InputContainerProps> = ({
   setUserName,

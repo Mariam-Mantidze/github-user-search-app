@@ -4,7 +4,7 @@ import styled, { ThemeProvider } from "styled-components";
 import GitHubUser from "./types/User";
 import Header from "./Header";
 import { GlobalStyle } from "./styles/GlobalStyles";
-import InputContainer from "./styles/Input";
+import InputContainer from "./Input";
 import MainCard from "./MainCard";
 
 import { lightTheme, darkTheme } from "./themes/Themes";
@@ -19,14 +19,15 @@ function App() {
     getUser();
   }, []);
 
-  console.log(status);
+  // console.log(status);
 
   const getUser = async () => {
     try {
       const response = await fetch(`https://api.github.com/users/${userName}`);
       const data = await response.json();
-      setUserData(data);
+      if (data.message !== "Not Found") setUserData(data);
       setStatus(response.status);
+      console.log(data);
     } catch (error) {
       console.error(error);
     }
