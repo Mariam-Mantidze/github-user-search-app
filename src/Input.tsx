@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import SearchIcon from "/images/icon-search.svg";
-import { InputContainerProps } from "./types/User";
+import { InputContainerProps } from "./types/types";
 
 const InputContainer: React.FC<InputContainerProps> = ({
   setUserName,
@@ -37,6 +37,15 @@ const InputBox = styled.div`
   border-radius: 12px;
   margin-top: 36px;
   cursor: pointer;
+  max-width: 375px;
+
+  @media (min-width: 768px) {
+    min-width: 573px;
+  }
+
+  @media (min-width: 1440px) {
+    min-width: 730px;
+  }
 
   & > .flex-group {
     display: flex;

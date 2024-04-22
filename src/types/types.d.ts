@@ -34,10 +34,8 @@ type GitHubUser = {
   message?: string;
 };
 
-export interface InputContainerProps {
+interface InputContainerProps {
   setUserName: (username: string) => void;
   getUser: () => void;
   status: number;
 }
-
-export default GitHubUser;

@@ -8,7 +8,7 @@ export const lightTheme = {
   repoBox: "rgba(246, 248, 255, 1)",
   iconColor: {
     activeColor: "rgba(75, 106, 155, 1)",
-    inactiveColor: "rgba(75, 106, 155, 1)",
+    inactiveColor: "rgba(75, 106, 155, 0.40)",
   },
 };
 
@@ -22,6 +22,6 @@ export const darkTheme = {
   repoBox: "rgba(20, 29, 47, 1)",
   iconColor: {
     activeColor: "rgba(255, 255, 255, 1)",
-    inactiveColor: "rgba(255, 255, 255, 1)",
+    inactiveColor: "rgba(255, 255, 255, 0.40)",
   },
 };

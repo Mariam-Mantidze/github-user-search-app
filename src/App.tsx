@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import styled, { ThemeProvider } from "styled-components";
-import GitHubUser from "./types/User";
 import Header from "./Header";
 import { GlobalStyle } from "./styles/GlobalStyles";
 import InputContainer from "./Input";
@@ -25,11 +24,16 @@ function App() {
     try {
       const response = await fetch(`https://api.github.com/users/${userName}`);
       const data = await response.json();
-      if (data.message !== "Not Found") setUserData(data);
+
+      if (data.message === "Not Found") {
+        throw new Error("Error fetching user");
+      } else {
+        setUserData(data);
+      }
       setStatus(response.status);
-      console.log(data);
+      // console.log(data);
     } catch (error) {
-      console.error(error);
+      console.error(error.message);
     }
   };
 
