@@ -30,21 +30,21 @@ const InputBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
   padding: 6.5px 7px 7.5px 16px;
   background: ${(props) => props.theme.cardsBackground};
   box-shadow: ${(props) => props.theme.shadow};
   border-radius: 12px;
   margin-top: 36px;
   cursor: pointer;
-  max-width: 375px;
 
   @media (min-width: 768px) {
-    min-width: 573px;
+    width: 573px;
+    padding: 9.5px 10px 9.5px 32px;
+    margin-top: 35px;
   }
 
   @media (min-width: 1440px) {
-    min-width: 730px;
+    width: 730px;
   }
 
   & > .flex-group {
@@ -52,27 +52,43 @@ const InputBox = styled.div`
     align-items: center;
     gap: 8.95px;
 
+    @media (min-width: 768px) {
+      gap: 24px;
+    }
+
     & > input {
       outline: none;
       border: none;
       min-width: 170px;
-
       font-size: 13px;
       font-weight: 400;
       line-height: 25px;
       color: ${(props) => props.theme.inputColor};
       background-color: ${(props) => props.theme.cardsBackground};
 
+      @media (min-width: 768px) {
+        font-size: 18px;
+        min-width: 250px;
+      }
+
       &::placeholder {
         font-size: 13px;
         font-weight: 400;
         line-height: 25px;
         text-align: left;
+
+        @media (min-width: 768px) {
+          font-size: 18px;
+        }
       }
     }
 
     & > img {
       width: 17.68px;
+
+      @media (min-width: 768px) {
+        width: 21.22px;
+      }
     }
 
     & > button {
@@ -87,6 +103,11 @@ const InputBox = styled.div`
       border-radius: 12px;
       cursor: pointer;
 
+      @media (min-width: 768px) {
+        padding: 13px 24px;
+        font-size: 16px;
+      }
+
       &:hover {
         background: rgba(96, 171, 255, 1);
       }
@@ -94,8 +115,8 @@ const InputBox = styled.div`
 
     & > .error-message {
       color: rgba(247, 70, 70, 1);
-      margin-right: 20px;
-      font-size: 13px;
+
+      font-size: 10px;
       font-weight: 700;
       line-height: 22.22px;
       text-align: left;

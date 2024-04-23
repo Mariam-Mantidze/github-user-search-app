@@ -25,11 +25,11 @@ const HeaderContainer = styled.header`
   font-weight: 700;
 
   @media (min-width: 768px) {
-    max-width: 573px;
+    width: 573px;
   }
 
   @media (min-width: 1440px) {
-    min-width: 730px;
+    width: 730px;
   }
   & > h1 {
     font-size: 26px;

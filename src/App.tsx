@@ -23,14 +23,14 @@ function App() {
   const getUser = async () => {
     try {
       const response = await fetch(`https://api.github.com/users/${userName}`);
+      setStatus(response.status);
       const data = await response.json();
 
       if (data.message === "Not Found") {
         throw new Error("Error fetching user");
-      } else {
-        setUserData(data);
       }
-      setStatus(response.status);
+      setUserData(data);
+
       // console.log(data);
     } catch (error) {
       console.error(error.message);

@@ -150,22 +150,36 @@ const ResultCard = styled.div`
   margin-top: 16px;
 
   @media (min-width: 768px) {
-    max-width: 573px;
+    width: 573px;
+    padding: 40px;
+    margin-top: 24px;
   }
 
   @media (min-width: 1440px) {
-    min-width: 730px;
+    width: 730px;
   }
 
   & .user-avatar {
     width: 70px;
     border-radius: 50%;
+
+    @media (min-width: 768px) {
+      width: 117px;
+    }
   }
 
   & .card-header {
     display: flex;
     align-items: center;
     gap: 19px;
+
+    @media (min-width: 768px) {
+      gap: 41px;
+    }
+
+    @media (min-width: 1440px) {
+      gap: 37px;
+    }
   }
 
   & .text-flex-group {
@@ -173,7 +187,7 @@ const ResultCard = styled.div`
     flex-direction: column;
     gap: 6px;
 
-    @media (min-width: 768px) {
+    @media (min-width: 1440px) {
       flex-direction: row;
       justify-content: space-between;
       width: 100%;
@@ -185,6 +199,10 @@ const ResultCard = styled.div`
       line-height: 19.25px;
       text-align: left;
       color: ${(props) => props.theme.inputColor};
+
+      @media (min-width: 768px) {
+        font-size: 15px;
+      }
     }
 
     & .user-names {
@@ -194,6 +212,10 @@ const ResultCard = styled.div`
         line-height: 23.7px;
         text-align: left;
         color: ${(props) => props.theme.userName};
+
+        @media (min-width: 768px) {
+          font-size: 26px;
+        }
       }
 
       & > span {
@@ -202,6 +224,13 @@ const ResultCard = styled.div`
         line-height: 19.25px;
         text-align: left;
         color: rgba(0, 121, 255, 1);
+        margin-top: -2px;
+        display: block;
+
+        @media (min-width: 768px) {
+          font-size: 16px;
+          margin-top: 6px;
+        }
       }
     }
   }
@@ -213,6 +242,11 @@ const ResultCard = styled.div`
     text-align: left;
     color: ${(props) => props.theme.inputColor};
     margin-top: 33px;
+
+    @media (min-width: 768px) {
+      font-size: 15px;
+      margin-top: 24px;
+    }
   }
 
   & .repos-follower-box {
@@ -224,6 +258,10 @@ const ResultCard = styled.div`
     padding: 18px 14px 19px 15px;
     margin-top: 23px;
 
+    @media (min-width: 768px) {
+      margin-top: 32px;
+    }
+
     & .flex-grp {
       display: flex;
       flex-direction: column;
@@ -234,6 +272,10 @@ const ResultCard = styled.div`
         font-weight: 400;
         line-height: 16.29px;
         color: ${(props) => props.theme.inputColor};
+
+        @media (min-width: 768px) {
+          font-size: 13px;
+        }
       }
 
       & > span {
@@ -242,6 +284,10 @@ const ResultCard = styled.div`
         line-height: 23.7px;
         text-align: center;
         color: ${(props) => props.theme.userName};
+
+        @media (min-width: 768px) {
+          font-size: 22px;
+        }
       }
     }
   }
@@ -254,8 +300,14 @@ const ResultCard = styled.div`
 
     @media (min-width: 768px) {
       display: grid;
+      order: revert;
       grid-template-columns: 1fr 1fr;
-      grid-column: 1;
+      gap: 19px;
+      margin-top: 30px;
+    }
+
+    @media (min-width: 1440px) {
+      margin-top: 37px;
     }
   }
 
@@ -278,7 +330,12 @@ const StyledSpan = styled.span`
   cursor: pointer;
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: ${(props) =>
+      props.userData[props.property] ? "underline" : ""};
+  }
+
+  @media (min-width: 768px) {
+    font-size: 15px;
   }
 `;
 
