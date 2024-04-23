@@ -350,7 +350,8 @@ const StyledSpan = styled.span.withConfig({
     props.userData && props.userData[props.property]
       ? props.theme.iconColor.activeColor
       : props.theme.iconColor.inactiveColor};
-  cursor: pointer;
+  cursor: ${(props) =>
+    props.userData && props.userData[props.property] ? "pointer" : ""};
 
   &:hover {
     text-decoration: ${(props) =>
