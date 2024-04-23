@@ -11,7 +11,7 @@ import { lightTheme, darkTheme } from "./themes/Themes";
 function App() {
   const [userData, setUserData] = useState<GitHubUser | null>(null);
   const [status, setStatus] = useState<number>(200);
-  const [userName, setUserName] = useState<string>("octocat");
+  const [userName, setUserName] = useState<string>("mariam-mantidze");
   const [mode, setMode] = useState("light");
 
   useEffect(() => {
