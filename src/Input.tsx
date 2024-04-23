@@ -120,6 +120,14 @@ const InputBox = styled.div`
       font-weight: 700;
       line-height: 22.22px;
       text-align: left;
+
+      @media (min-width: 768px) {
+        font-size: 13px;
+      }
+
+      @media (min-width: 1440px) {
+        font-size: 15px;
+      }
     }
   }
 `;

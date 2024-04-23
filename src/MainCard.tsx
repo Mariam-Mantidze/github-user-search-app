@@ -157,6 +157,7 @@ const ResultCard = styled.div`
 
   @media (min-width: 1440px) {
     width: 730px;
+    padding: 48px;
   }
 
   & .user-avatar {
@@ -331,7 +332,7 @@ const StyledSpan = styled.span`
 
   &:hover {
     text-decoration: ${(props) =>
-      props.userData[props.property] ? "underline" : ""};
+      props.userData && props.userData[props.property] ? "underline" : ""};
   }
 
   @media (min-width: 768px) {
