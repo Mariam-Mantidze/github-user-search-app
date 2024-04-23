@@ -56,7 +56,6 @@ Upon entering a username in the search bar, the application queries the GitHub A
 The theme can be toggled from light to dark mode using a simple switch, affecting all components dynamically:
 
 ```jsx
-Copy code
 <Header setMode={setMode} mode={mode} />
 ```
 
