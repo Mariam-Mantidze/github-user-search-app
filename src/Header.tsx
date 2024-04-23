@@ -48,6 +48,7 @@ const ThemeContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 16px;
+  cursor: pointer;
 
   & > span {
     font-size: 13px;
@@ -55,9 +56,5 @@ const ThemeContainer = styled.div`
     letter-spacing: 2.5px;
     text-align: right;
     color: ${(props) => props.theme.inputColor};
-  }
-
-  & > img {
-    cursor: pointer;
   }
 `;
