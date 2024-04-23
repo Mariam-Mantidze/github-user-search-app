@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import Header from "./Header";
 import { GlobalStyle } from "./styles/GlobalStyles";
 import InputContainer from "./Input";
@@ -30,10 +30,12 @@ function App() {
         throw new Error("Error fetching user");
       }
       setUserData(data);
-
-      // console.log(data);
-    } catch (error) {
-      console.error(error.message);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error(error.message);
+      } else {
+        console.log("An unknown error occurred");
+      }
     }
   };
 
