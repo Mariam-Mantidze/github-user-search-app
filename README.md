@@ -1,30 +1,68 @@
-# React + TypeScript + Vite
+# Frontend Mentor - GitHub user search app solution
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a solution to the [GitHub user search app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/github-user-search-app-Q09YOgaH6).
 
-Currently, two official plugins are available:
+### The challenge
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Users should be able to:
 
-## Expanding the ESLint configuration
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Search for GitHub users by their username
+- See relevant user information based on their search
+- Switch between light and dark themes
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Screenshot
 
-- Configure the top-level `parserOptions` property like this:
+![](./preview.jpg)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+### Links
+
+- Live Site URL: [https://github-user-search-nj7o9zo9j-mariams-projects-33424897.vercel.app/]
+
+## Features
+
+- **Dynamic Theme Switching**: Users can toggle between light and dark themes, enhancing visual comfort and accessibility.
+- **Live API Integration**: Fetches user data directly from the GitHub API as usernames are inputted, displaying user-specific information such as followers, following, repositories, and more.
+- **Error Handling**: Gracefully handles errors such as non-existent usernames, displaying user-friendly error messages.
+- **Responsive Design**: Ensures that the app looks good on both desktops and mobile devices.
+
+## Technologies Used
+
+- **React**: Leverages functional components with hooks for managing component lifecycle and state.
+- **TypeScript**: Ensures type safety, enhancing code reliability and maintainability.
+- **Styled-Components**: Facilitates component-specific styling and dynamic theming, using themes stored in context.
+- **useEffect Hook**: Demonstrates effective use of React's useEffect to perform side effects in the application, including API calls on component mount.
+- **GitHub API**: Integrates with the GitHub API to fetch user data based on usernames.
+
+## Examples
+
+### Search Functionality
+
+Upon entering a username in the search bar, the application queries the GitHub API and displays relevant information about the user:
+
+```jsx
+<InputContainer
+  getUser={getUser}
+  status={status}
+  setUserName={setUserName}
+/>
+
+<MainCard userData={userData} />
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Theme Switching
+
+The theme can be toggled from light to dark mode using a simple switch, affecting all components dynamically:
+
+```jsx
+Copy code
+<Header setMode={setMode} mode={mode} />
+```
+
+### Takeaways
+
+- **React useEffect Hook**: I've become adept at using useEffect for handling side effects, such as API calls upon component mount or in response to state changes.
+- **Dynamic Theming with Styled-Components**: Implementing theme switching taught me how to effectively use theming within styled-components, allowing for more flexible and maintainable styling.
+- **TypeScript Proficiency**: I've become more proficient in using TypeScript in a React project, appreciating its power in providing type safety and helping prevent runtime errors before code execution.
+- **API Integration**: The project solidified my ability to work with external APIs, understanding asynchronous operations and handling responses and errors gracefully.
