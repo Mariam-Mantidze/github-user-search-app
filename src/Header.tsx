@@ -2,7 +2,12 @@ import styled from "styled-components";
 import Sun from "/images/icon-sun.svg";
 import Moon from "/images/icon-moon.svg";
 
-export default function Header({ setMode, mode }) {
+interface HeaderProps {
+  setMode: React.Dispatch<React.SetStateAction<string>>;
+  mode: string;
+}
+
+export default function Header({ setMode, mode }: HeaderProps) {
   return (
     <HeaderContainer>
       <h1>devfinder</h1>

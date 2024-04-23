@@ -1,11 +1,19 @@
 import styled from "styled-components";
 
+interface StyledSpanProps {
+  userData: GitHubUser | null;
+  property: keyof GitHubUser;
+}
+
 export default function MainCard({
   userData,
 }: {
   userData: GitHubUser | null;
 }) {
-  function formatJoinedDate(isoDateString) {
+  function formatJoinedDate(isoDateString: string | undefined): string {
+    if (!isoDateString) {
+      return "Date not available";
+    }
     const date = new Date(isoDateString);
 
     // Get the day, month, and year from the date
@@ -331,7 +339,9 @@ const ResultCard = styled.div`
   }
 `;
 
-const StyledSpan = styled.span`
+const StyledSpan = styled.span.withConfig({
+  shouldForwardProp: (prop) => !["userData", "property"].includes(prop),
+})<StyledSpanProps>`
   font-size: 13px;
   font-weight: 400;
   line-height: 19.25px;
@@ -352,7 +362,9 @@ const StyledSpan = styled.span`
   }
 `;
 
-const StyledSvg = styled.svg`
+const StyledSvg = styled.svg.withConfig({
+  shouldForwardProp: (prop) => !["userData", "property"].includes(prop),
+})<StyledSpanProps>`
   fill: ${(props) =>
     props.userData && props.userData[props.property]
       ? props.theme.iconColor.activeColor
