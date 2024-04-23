@@ -157,7 +157,8 @@ const ResultCard = styled.div`
 
   @media (min-width: 1440px) {
     width: 730px;
-    padding: 48px;
+    padding: 48px 48px 48px 202px;
+    position: relative;
   }
 
   & .user-avatar {
@@ -166,6 +167,12 @@ const ResultCard = styled.div`
 
     @media (min-width: 768px) {
       width: 117px;
+    }
+
+    @media (min-width: 1440px) {
+      position: absolute;
+      left: 48px;
+      top: 48px;
     }
   }
 
@@ -180,6 +187,7 @@ const ResultCard = styled.div`
 
     @media (min-width: 1440px) {
       gap: 37px;
+      display: block;
     }
   }
 
@@ -231,6 +239,10 @@ const ResultCard = styled.div`
         @media (min-width: 768px) {
           font-size: 16px;
           margin-top: 6px;
+        }
+
+        @media (min-width: 1440px) {
+          margin-top: 10px;
         }
       }
     }
